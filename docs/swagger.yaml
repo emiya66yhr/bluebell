@@ -1,0 +1,113 @@
+basePath: /api/v1/
+definitions:
+  controllers._ResponsePostDetail:
+    properties:
+      code:
+        description: 状态码
+        type: integer
+      data:
+        $ref: '#/definitions/models.CommunityDetail'
+        description: 数据
+      message:
+        description: 提示信息
+        type: string
+    type: object
+  controllers._ResponsePostList:
+    properties:
+      code:
+        description: 状态码
+        type: integer
+      data:
+        description: 数据
+        items:
+          $ref: '#/definitions/models.CommunityDetail'
+        type: array
+      message:
+        description: 提示信息
+        type: string
+    type: object
+  models.CommunityDetail:
+    properties:
+      create_time:
+        type: string
+      id:
+        type: integer
+      introduction:
+        type: string
+      name:
+        type: string
+    type: object
+host: 127.0.0.1:8080
+info:
+  contact:
+    email: support@swagger.io
+    url: http://www.swagger.io/support
+  description: Go Web 实战服务端接口文档
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: bluebell项目接口文档
+  version: "1.0"
+paths:
+  /community:
+    get:
+      consumes:
+      - application/json
+      description: 查询社区列表接口
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers._ResponsePostDetail'
+      security:
+      - ApiKeyAuth: []
+      summary: 社区列表接口
+      tags:
+      - 社区相关接口
+  /community/post/orderList:
+    get:
+      consumes:
+      - application/json
+      description: 可按社区按时间或分数排序查询帖子列表接口
+      parameters:
+      - description: Bearer 用户令牌
+        in: header
+        name: Authorization
+        type: string
+      - description: 可以为空
+        in: query
+        name: community_id
+        type: integer
+      - description: 排序依据
+        in: query
+        name: order
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        type: integer
+      - description: 每页数据量
+        in: query
+        name: size
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controllers._ResponsePostList'
+      security:
+      - ApiKeyAuth: []
+      summary: 升级版帖子列表接口
+      tags:
+      - 帖子相关接口
+swagger: "2.0"
