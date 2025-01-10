@@ -2,6 +2,15 @@ PS：本项目是从我看到本次纳新要求才开始着手部署的，一个
 时间紧迫，又是第一次着手进行，项目的大部分内容仍处于一知半解的状态，几乎全程是跟着李文周老师的视频打下来的，感觉要学习的东西还有太多太多了。
 希望俱乐部能通过我这份申请，接下来我会花更多时间学习的
 
+#### swagger 接口文档
+
+![image-20220614104536488](https://tva1.sinaimg.cn/large/e6c9d24ely1h37kubtr7tj21el0u0juy.jpg)
+
+- swagger models(controllers.doc_models.go 中定义的返回数据结构体)
+  ![image-20220614104839621](https://tva1.sinaimg.cn/large/e6c9d24ely1h37kxgm763j21kw0noafc.jpg)
+
+  ![image-20220614104759247](https://tva1.sinaimg.cn/large/e6c9d24ely1h37kwrpenyj20u30u0q4d.jpg)
+
 
 1. **Controller（控制器层）**：
    - 作为服务入口，接收客户端HTTP请求，首先对请求的路由进行精准匹配，判断请求应导向的具体业务逻辑处理模块。
